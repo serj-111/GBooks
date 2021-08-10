@@ -1,0 +1,53 @@
+$text-color: gainsboro;
+
+.header {
+  padding: 0;
+  height: 25vh;
+  background-image: url("../media/header_background.jpg");
+  background-size: cover;
+  color: $text-color;
+}
+.header_layer {
+  height: 25vh;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(5px)
+}
+.header_content {
+  margin: 0;
+  height: 100%;
+  align-items: center;
+}
+select {
+  height: 35px;
+  width: 20vmax;
+  margin-left: 10px;
+  background-color: $text-color;
+  &:focus {
+    background-color: white;
+  }
+}
+input {
+  min-width: 40vmin;
+  margin-right: 10px;
+  background-color: $text-color;
+}
+.fa-search {
+  color: $text-color;
+  &:hover{
+    color: gray;
+    cursor: pointer;
+  }
+  font-size: 20px;
+}
+.search_bar{
+  height: 35px;
+  &:focus {
+    background-color: white;
+  }
+}
+.fa-book {
+  color: $text-color;
+  &:hover {
+    color: gray;
+  }
+}
