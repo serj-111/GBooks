@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/GBooks/static/css/main.68e0afde.chunk.css",
+    "main.css": "/GBooks/static/css/main.19f4a496.chunk.css",
     "main.js": "/GBooks/static/js/main.f51f56ce.chunk.js",
     "main.js.map": "/GBooks/static/js/main.f51f56ce.chunk.js.map",
     "runtime-main.js": "/GBooks/static/js/runtime-main.90155123.js",
@@ -8,7 +8,7 @@
     "static/js/2.9840b4a8.chunk.js": "/GBooks/static/js/2.9840b4a8.chunk.js",
     "static/js/2.9840b4a8.chunk.js.map": "/GBooks/static/js/2.9840b4a8.chunk.js.map",
     "index.html": "/GBooks/index.html",
-    "static/css/main.68e0afde.chunk.css.map": "/GBooks/static/css/main.68e0afde.chunk.css.map",
+    "static/css/main.19f4a496.chunk.css.map": "/GBooks/static/css/main.19f4a496.chunk.css.map",
     "static/js/2.9840b4a8.chunk.js.LICENSE.txt": "/GBooks/static/js/2.9840b4a8.chunk.js.LICENSE.txt",
     "static/media/book_thumbnail.94cd23fa.png": "/GBooks/static/media/book_thumbnail.94cd23fa.png",
     "static/media/Header.scss": "/GBooks/static/media/header_background.7c062754.jpg"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.90155123.js",
     "static/js/2.9840b4a8.chunk.js",
-    "static/css/main.68e0afde.chunk.css",
+    "static/css/main.19f4a496.chunk.css",
     "static/js/main.f51f56ce.chunk.js"
   ]
 }
