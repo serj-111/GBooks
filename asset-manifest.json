@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/GBooks/static/css/main.ed91338d.chunk.css",
-    "main.js": "/GBooks/static/js/main.4cf1eeb9.chunk.js",
-    "main.js.map": "/GBooks/static/js/main.4cf1eeb9.chunk.js.map",
+    "main.css": "/GBooks/static/css/main.282538aa.chunk.css",
+    "main.js": "/GBooks/static/js/main.706cb0c2.chunk.js",
+    "main.js.map": "/GBooks/static/js/main.706cb0c2.chunk.js.map",
     "runtime-main.js": "/GBooks/static/js/runtime-main.90155123.js",
     "runtime-main.js.map": "/GBooks/static/js/runtime-main.90155123.js.map",
-    "static/js/2.9840b4a8.chunk.js": "/GBooks/static/js/2.9840b4a8.chunk.js",
-    "static/js/2.9840b4a8.chunk.js.map": "/GBooks/static/js/2.9840b4a8.chunk.js.map",
+    "static/js/2.bbec4d9d.chunk.js": "/GBooks/static/js/2.bbec4d9d.chunk.js",
+    "static/js/2.bbec4d9d.chunk.js.map": "/GBooks/static/js/2.bbec4d9d.chunk.js.map",
     "index.html": "/GBooks/index.html",
-    "static/css/main.ed91338d.chunk.css.map": "/GBooks/static/css/main.ed91338d.chunk.css.map",
-    "static/js/2.9840b4a8.chunk.js.LICENSE.txt": "/GBooks/static/js/2.9840b4a8.chunk.js.LICENSE.txt",
+    "static/css/main.282538aa.chunk.css.map": "/GBooks/static/css/main.282538aa.chunk.css.map",
+    "static/js/2.bbec4d9d.chunk.js.LICENSE.txt": "/GBooks/static/js/2.bbec4d9d.chunk.js.LICENSE.txt",
     "static/media/book_thumbnail.94cd23fa.png": "/GBooks/static/media/book_thumbnail.94cd23fa.png",
-    "static/media/Header.scss": "/GBooks/static/media/header_background.7c062754.jpg"
+    "static/media/Header.scss": "/GBooks/static/media/header_background.3d549a72.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.90155123.js",
-    "static/js/2.9840b4a8.chunk.js",
-    "static/css/main.ed91338d.chunk.css",
-    "static/js/main.4cf1eeb9.chunk.js"
+    "static/js/2.bbec4d9d.chunk.js",
+    "static/css/main.282538aa.chunk.css",
+    "static/js/main.706cb0c2.chunk.js"
   ]
 }
