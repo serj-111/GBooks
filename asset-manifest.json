@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/GBooks/static/css/main.a17d9918.chunk.css",
-    "main.js": "/GBooks/static/js/main.580b6d19.chunk.js",
-    "main.js.map": "/GBooks/static/js/main.580b6d19.chunk.js.map",
+    "main.js": "/GBooks/static/js/main.1e57acc2.chunk.js",
+    "main.js.map": "/GBooks/static/js/main.1e57acc2.chunk.js.map",
     "runtime-main.js": "/GBooks/static/js/runtime-main.90155123.js",
     "runtime-main.js.map": "/GBooks/static/js/runtime-main.90155123.js.map",
-    "static/js/2.646a1a05.chunk.js": "/GBooks/static/js/2.646a1a05.chunk.js",
-    "static/js/2.646a1a05.chunk.js.map": "/GBooks/static/js/2.646a1a05.chunk.js.map",
+    "static/js/2.ebc441e1.chunk.js": "/GBooks/static/js/2.ebc441e1.chunk.js",
+    "static/js/2.ebc441e1.chunk.js.map": "/GBooks/static/js/2.ebc441e1.chunk.js.map",
     "index.html": "/GBooks/index.html",
     "static/css/main.a17d9918.chunk.css.map": "/GBooks/static/css/main.a17d9918.chunk.css.map",
-    "static/js/2.646a1a05.chunk.js.LICENSE.txt": "/GBooks/static/js/2.646a1a05.chunk.js.LICENSE.txt",
+    "static/js/2.ebc441e1.chunk.js.LICENSE.txt": "/GBooks/static/js/2.ebc441e1.chunk.js.LICENSE.txt",
     "static/media/book_thumbnail.94cd23fa.png": "/GBooks/static/media/book_thumbnail.94cd23fa.png",
     "static/media/Header.scss": "/GBooks/static/media/header_background.3d549a72.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.90155123.js",
-    "static/js/2.646a1a05.chunk.js",
+    "static/js/2.ebc441e1.chunk.js",
     "static/css/main.a17d9918.chunk.css",
-    "static/js/main.580b6d19.chunk.js"
+    "static/js/main.1e57acc2.chunk.js"
   ]
 }
