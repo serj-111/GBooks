@@ -79,7 +79,6 @@ export const CurrentBook = ({scrollRef}) => {
                 </div>
             )
     }
-
         return (
             <div>
                 <BookBlock/>
