@@ -1,16 +1,44 @@
 $text-color: gainsboro;
 
+@media (max-width: 575px) {
+  input {
+    width: 60vw;
+  }
+  .fa-book {
+    padding-right: 50px;
+    padding-bottom: 20px;
+  }
+}
+@media (min-width: 1320px) {
+  .header {
+    width: 1320px;
+  }
+}
+.fa-times {
+  font-size: 20px;
+  position: relative;
+  top: 2px;
+  right: 25px;
+  color: gray;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.title {
+  font-size: 30px;
+  display: inherit;
+  margin-left: 10px;
+}
 .header {
   padding: 0;
-  height: 25vh;
   background-image: url("../media/header_background.jpg");
-  background-size: cover;
+  background-size: contain;
   color: $text-color;
+  box-shadow: 0px 5px 67px 19px rgba(34, 60, 80, 0.9) inset;
 }
 .header_layer {
-  height: 25vh;
-  background: rgba(0,0,0,.6);
-  backdrop-filter: blur(5px)
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(5px);
 }
 .header_content {
   margin: 0;
@@ -18,36 +46,80 @@ $text-color: gainsboro;
   align-items: center;
 }
 select {
+  appearance: none;
+  outline: 0;
+  border: none;
+  padding-left: 10px;
   height: 35px;
-  width: 20vmax;
+  width: 200px;
   margin-left: 10px;
   background-color: $text-color;
-  &:focus {
-    background-color: white;
-  }
-}
-input {
-  min-width: 40vmin;
-  margin-right: 10px;
-  background-color: $text-color;
-}
-.fa-search {
-  color: $text-color;
-  &:hover{
-    color: gray;
+  &:hover {
     cursor: pointer;
   }
-  font-size: 20px;
-}
-.search_bar{
-  height: 35px;
   &:focus {
     background-color: white;
   }
 }
-.fa-book {
+.fa-caret-down {
+  font-size: 20px;
+  color: black;
+  position: relative;
+  right: 22px;
+}
+.fa-search {
+  position: relative;
+  font-size: 20px;
   color: $text-color;
-  &:hover {
+  &:active{
     color: gray;
   }
+}
+.search_bar{
+  outline: 0;
+  border: none;
+  min-width: 50vmin;
+  height: 35px;
+  background-color: $text-color;
+  padding-left: 10px;
+  &:focus {
+    background-color: white;
+  }
+}
+.label_config {
+  letter-spacing: 1px;
+}
+
+.fa-book {
+  letter-spacing: 1px;
+  padding-left: 50px;
+  font-size: 70px;
+  white-space: nowrap;
+  color: $text-color;
+  &:active {
+    color: gray;
+  }
+}
+.btn-check:checked+.btn-outline-secondary {
+  color: $text-color;
+  background-color: gray;
+}
+
+.btn-outline-secondary {
+  font-size: 1rem;
+  transition: none;
+  box-shadow: none !important;
+  outline: 0 !important;
+  display: flex;
+  align-items: center;
+  color: black;
+  background-color: $text-color;
+  &:active {
+    color: $text-color !important;
+    background-color: gray !important;
+  }
+  &:hover {
+     color: black;
+     background-color: $text-color;
+   }
 }

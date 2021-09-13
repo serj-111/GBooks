@@ -1,6 +1,24 @@
 $background-color: #e9ecf1;
 $text-color: gainsboro;
 
+@media (max-width: 575px) {
+  .book_block {
+    padding: 0;
+  }
+  .book_image {
+    margin-top: 10px;
+    width: 90% !important;
+  }
+  .up_button {
+    top: 75vh !important;
+    left: 80vw !important;
+  }
+}
+@media (max-width: 767px) {
+  .up_button {
+    left: 80vw;
+  }
+}
 .loading {
   min-height: 50vh;
   display: flex;
@@ -8,21 +26,23 @@ $text-color: gainsboro;
   align-items: center;
   justify-content: center;
 }
-
-@media (max-width: 575px) {
-  .book_block {
-    padding: 5px !important;
-  }
-}
 .card {
+  display: flex;
+  align-items: center;
   padding-top: 2vw;
   padding-left: 2vw;
   padding-right: 2vw;
 }
-.loadmore_button {
-  text-align: center;
-  height: 50px;
-  width: 150px;
+.book_image {
+  width: 100%;
+  transform: scale(1);
+  transition-duration: 0.3s;
+}
+.loadmore_button, .up_button{
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
   background-color: white;
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
@@ -31,6 +51,32 @@ $text-color: gainsboro;
   &:hover {
     cursor: pointer;
     background-color: $text-color;
+  }
+}
+.loadmore_button {
+  height: 50px;
+  width: 150px;
+}
+.up_button {
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  top: 80vh;
+  left: 90vw;
+  z-index: 9999;
+}
+.book_block {
+  color: #000;
+  text-decoration: none;
+  &:hover {
+    u {
+      color: #000;
+    }
+    .book_image {
+      transform: scale(1.05);
+      transition-property: transform;
+      transition-duration: 0.3s;
+    }
   }
 }
 .fa-redo-alt {
@@ -48,12 +94,35 @@ $text-color: gainsboro;
     transform: rotate(360deg);
   }
 }
-.book_block {
-  color: #000;
-  text-decoration: none;
-  &:hover {
-    u {
-      color: #000;
-    }
+@keyframes book-bounce {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  80% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+@keyframes shelf-lift {
+  0% { transform: translateY(0) rotate(0); }
+  20% { transform: translateY(-4px) rotate(10deg); }
+  40% { transform: translateY(-4px) rotate(0); }
+  40% { transform: translateY(-4px) rotate(-10deg); }
+  80% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+.book-shelf {
+  cursor: pointer;
+  .book-shelf__book {
+    animation: book-bounce 0.4s ease;
+    animation-iteration-count: infinite;
+  }
+  .book-shelf__book--two {
+    animation-delay: 0.04s;
+  }
+  .book-shelf__book--three {
+    animation-delay: 0.08s;
+  }
+  .book-shelf__shelf {
+    animation: shelf-lift 0.4s ease;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
   }
 }

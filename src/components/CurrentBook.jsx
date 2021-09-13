@@ -1,54 +1,88 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import './CurrentBook.scss';
-import book_thumbnail from "../media/book_thumbnail.png"
+import empty_book_thumbnail from "../media/book_thumbnail.png"
+import {useEffect, useState} from "react";
 
 
-export const CurrentBook = () => {
+export const CurrentBook = ({scrollRef}) => {
 
+    useEffect(() => {
+        window.scrollTo(0, scrollRef.current.scrollHeight)
+    })
+
+    let [switcher, setSwitcher] = useState(false)
+    const book = useSelector(state => state.currentBookReducer.book)
+    const dispatch = useDispatch()
+    const checked = useSelector(state => state.currentBookReducer.checked)
     const history = useHistory()
-    const book_etag = useSelector(state => state.currentBookReducer.book_etag)
-    const books = useSelector(state => state.allBooksReducer.books)
-    let key_counter = 0
 
+    if (localStorage.getItem(book.id) === "checked") {
+        dispatch({type: "SET_CHECKED", payload: "checked"})
+    } else if (localStorage.getItem(book.id) === null || localStorage.getItem(book.id) === "") {
+        dispatch({type: "SET_CHECKED", payload: ""})
+    }
+
+    const handlerFavorites = (props) => {
+        setSwitcher(!switcher)
+        if(!switcher && (localStorage.getItem(book.id) === "" || localStorage.getItem(book.id) === null)) {
+            localStorage.setItem(`${props.id}`, "checked")
+            console.log(props.id + " Добавлено")
+            setSwitcher(!switcher)
+        } else {
+            localStorage.setItem(`${props.id}`, "")
+            console.log(props.id + " Удалено")
+            setSwitcher(!switcher)
+        }
+    }
     const handlerBack = () => {
         history.goBack()
     }
 
-    let arr_bookcards = books.map( item => {
-        let thumbnail_url = item.volumeInfo.imageLinks === undefined
-            ? book_thumbnail
-            : item.volumeInfo.imageLinks.thumbnail
-        let categories = item.volumeInfo.categories === undefined
-            ? "" : item.volumeInfo.categories
-        let authors = item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : item.volumeInfo.authors
-        let buy_button = item.saleInfo.buyLink === undefined ? "" : <a href={item.saleInfo.buyLink} rel="noreferrer" target="_blank" className="buy_button shadow mb-3 rounded">Buy on Google Play</a>
+    const BookBlock = () => {
 
-        if (item.etag === book_etag) {
+        let thumbnail_url = book.volumeInfo?.imageLinks ? book.volumeInfo.imageLinks.thumbnail : empty_book_thumbnail
+        let categories = book.volumeInfo?.categories ? book.volumeInfo.categories : ""
+        let authors = book.volumeInfo?.authors ? book.volumeInfo?.authors.join(', ') : book.volumeInfo?.authors
+        let buy_button = book.saleInfo?.buyLink ? <a href={book.saleInfo.buyLink} rel="noreferrer" target="_blank" className="buy_button shadow mb-3 rounded">Приобрести в Google Play</a> : ""
+        let page_count = book.volumeInfo?.pageCount ? <div className="d-flex justify-content-center">Количество страниц:&nbsp;<strong>{book.volumeInfo.pageCount}</strong></div> : ""
+        let sale_info = book.saleInfo?.listPrice ? <div className="d-flex justify-content-center">Стоимость:&nbsp;<strong>{book.saleInfo.listPrice.amount}</strong>&nbsp;{book.saleInfo.listPrice.currencyCode}</div> : ""
+        let published_date = book.volumeInfo?.publishedDate ? <div className="d-flex justify-content-center">Дата публикации:&nbsp;{book.volumeInfo.publishedDate}</div> : ""
+        let publisher = book.volumeInfo?.publisher ? <div className="d-flex justify-content-center mb-2">{book.volumeInfo.publisher}</div> : ""
+        let preview = book.volumeInfo?.previewLink && book.saleInfo?.isEbook ? <a href={book.volumeInfo.previewLink} rel="noreferrer" target="_blank" className="buy_button shadow mb-3 rounded">Прочитать отрывок</a> : ""
             return (
-                <div className="container pt-5" key={key_counter++}>
-                    <div className="row ">
-                        <div className="wrapper col-sm-6 mb-5">
-                            <img src={thumbnail_url} className="img shadow bg-white rounded" alt="Book thumbnail"/>
+                <div className="container">
+                    <div className="row pt-5 d-flex justify-content-center">
+                        <div className="col-sm-6">
+                            <div className="row mb-3 d-flex justify-content-center">
+                                <img src={thumbnail_url} className="current_card_img rounded shadow" alt="Book thumbnail"/>
+                            </div>
+                            <div className="row mb-5 text-muted">
+                                {published_date}
+                                {publisher}
+                                {page_count}
+                                {sale_info}
+                            </div>
                         </div>
                         <div className="col-sm-6">
-                            <h3>{item.volumeInfo.title}</h3>
-                            <h5 className="text-muted">{authors}</h5>
-                            <p><u>{categories}</u></p>
-                            <p className="description mb-4">{item.volumeInfo.description}</p>
+                            <input type="checkbox" className="btn-check" id={book.id} checked={checked} onChange={ () => handlerFavorites(book)}/>
+                            <label className="fas fa-star btn btn-outline-secondary" htmlFor={book.id}/>
+                            <h3 className="mb-3">{book.volumeInfo?.title}</h3>
+                            <h6 className="text-muted">{authors}</h6>
+                            <h6 className="my-3"><u>{categories}</u></h6>
+                            <p className="description mb-4">{book.volumeInfo?.description}</p>
                             {buy_button}
-                            <div className="back_button shadow mb-5 rounded" onClick={handlerBack}>Back to list</div>
+                            {preview}
+                            <div className="back_button shadow mb-5 rounded" onClick={handlerBack}>Назад</div>
                         </div>
                     </div>
                 </div>
             )
-        }
-    })
+    }
 
-    return (
-        <div>
-            {arr_bookcards}
-        </div>
+        return (
+            <div>
+                <BookBlock/>
+            </div>)
 
-    )
 }
