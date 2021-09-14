@@ -1,5 +1,5 @@
 {
-  "name": "bookapp",
+  "name": "GBooks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,7 +19,7 @@
   "homepage": "https://serj-111.github.io/GBooks",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b main -d build",
+    "deploy": "gh-pages -d build",
     "start": "cross-env PORT=10888 HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
