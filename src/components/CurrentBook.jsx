@@ -47,7 +47,7 @@ export const CurrentBook = ({scrollRef}) => {
         let buy_button = book.saleInfo?.buyLink ? <a href={book.saleInfo.buyLink} rel="noreferrer" target="_blank" className="buy_button shadow mb-3 rounded">Приобрести в Google Play</a> : ""
         let page_count = book.volumeInfo?.pageCount ? <div className="d-flex justify-content-center">Количество страниц:&nbsp;<strong>{book.volumeInfo.pageCount}</strong></div> : ""
         let sale_info = book.saleInfo?.listPrice ? <div className="d-flex justify-content-center">Стоимость:&nbsp;<strong>{book.saleInfo.listPrice.amount}</strong>&nbsp;{book.saleInfo.listPrice.currencyCode}</div> : ""
-        let published_date = book.volumeInfo?.publishedDate ? <div className="d-flex justify-content-center">Дата публикации:&nbsp;{book.volumeInfo.publishedDate}</div> : ""
+        let published_date = book.volumeInfo?.publishedDate ? <div className="d-flex justify-content-center">Дата публикации:&nbsp;{book.volumeInfo.publishedDate.split("-").reverse().join(".")}</div> : ""
         let publisher = book.volumeInfo?.publisher ? <div className="d-flex justify-content-center mb-2">{book.volumeInfo.publisher}</div> : ""
         let preview = book.volumeInfo?.previewLink && book.saleInfo?.isEbook ? <a href={book.volumeInfo.previewLink} rel="noreferrer" target="_blank" className="buy_button shadow mb-3 rounded">Прочитать отрывок</a> : ""
             return (
@@ -79,6 +79,7 @@ export const CurrentBook = ({scrollRef}) => {
                 </div>
             )
     }
+
         return (
             <div>
                 <BookBlock/>

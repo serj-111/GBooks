@@ -8,10 +8,33 @@ $text-color: gainsboro;
     padding-right: 50px;
     padding-bottom: 20px;
   }
+  .row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding: 0;
+  }
+  .search_block {
+    padding: 0 !important;
+  }
+  .btn-outline-secondary {
+    font-size: 14px !important;
+  }
 }
 @media (min-width: 1320px) {
   .header {
     width: 1320px;
+  }
+}
+.navbar-toggler {
+  position: relative;
+  top: 5px;
+  padding: 0px 10px 0px 0px;
+  font-size: 30px !important;
+  &:hover {
+    cursor: pointer;
+  }
+  &:active{
+    color: gray;
   }
 }
 .fa-times {
@@ -23,6 +46,7 @@ $text-color: gainsboro;
   &:hover {
     cursor: pointer;
   }
+
 }
 .title {
   font-size: 30px;
@@ -86,6 +110,7 @@ select {
     background-color: white;
   }
 }
+
 .label_config {
   letter-spacing: 1px;
 }
@@ -122,4 +147,8 @@ select {
      color: black;
      background-color: $text-color;
    }
+}
+.burger {
+  width: 50px !important;
+  display: inline-block !important;
 }
