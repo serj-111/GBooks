@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import empty_book_thumbnail from "../media/book_thumbnail.png"
 
-
 export const Books = ({loadMore})=> {
 
     const dispatch = useDispatch()
@@ -27,7 +26,6 @@ export const Books = ({loadMore})=> {
         }
     }
     window.addEventListener("scroll", scrollHandler)
-
 
     if (error_indicator === 0) {
         return (

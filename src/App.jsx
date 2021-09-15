@@ -4,7 +4,7 @@ import {Books} from "./components/Books";
 import {Header} from "./components/Header";
 import {CurrentBook} from "./components/CurrentBook";
 import {BrowserRouter, Route} from "react-router-dom";
-import React from "react";
+import React, {useEffect} from "react";
 import {Favorites} from "./components/Favorites";
 
 function App() {
@@ -25,29 +25,33 @@ function App() {
     let favorite_books = []
     let favorites_filtered = []
 
+    useEffect( () => {
+        if (search_by_author) {
+            dispatch({type: "INPUT_PLACEHOLDER", payload: "Автор"})
+        } else {
+            dispatch({type: "INPUT_PLACEHOLDER", payload: "Название"})
+        }
+    }, [search_by_author])
 
-    if (search_by_author) {
-        dispatch({type: "INPUT_PLACEHOLDER", payload: "Автор"})
-    } else {
-        dispatch({type: "INPUT_PLACEHOLDER", payload: "Название"})
-    }
 
-    const checkForError = response => {
+    const checkForError = (response) => {
         if (!response.ok) throw Error(response.statusText);
         return response.json();
     };
 
     const fetchBooks = () => {
-
         if (!input) {
             dispatch({type: "INPUT_PLACEHOLDER", payload: "Пустой запрос"})
+            setTimeout(() => {
+                dispatch({type: "INPUT_PLACEHOLDER", payload: "Название"})
+            },2000)
         } else {
             dispatch({type: "IS_FETCHING", payload: true})
             fetch(`https://www.googleapis.com/books/v1/volumes?q=${search_by_author}${input}${category}&startIndex=0&maxResults=15${orderBy}${free_ebooks}&key=AIzaSyCxJF0JN_3n7DjrjVPcNFbBDdpveeeWm1k`)
                 .then(checkForError)
                 .then(result => {
                     console.log(result)
-                    // Проверка "издания"
+                    // Проверка окончания "издания"
                     let publication = ""
                     let total_publications_one = result.totalItems.toString()[result.totalItems.toString().length-1]
                     let total_publications_ten = result.totalItems.toString()[result.totalItems.toString().length-2]

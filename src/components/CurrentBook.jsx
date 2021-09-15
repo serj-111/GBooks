@@ -9,7 +9,7 @@ export const CurrentBook = ({scrollRef}) => {
 
     useEffect(() => {
         window.scrollTo(0, scrollRef.current.scrollHeight)
-    })
+    },[scrollRef])
 
     let [switcher, setSwitcher] = useState(false)
     const book = useSelector(state => state.currentBookReducer.book)

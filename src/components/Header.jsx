@@ -1,7 +1,7 @@
 import './Header.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useHistory} from 'react-router-dom';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 export const Header = ({fetchBooks, scrollRef, fetchFavorites}) => {
@@ -26,16 +26,22 @@ export const Header = ({fetchBooks, scrollRef, fetchFavorites}) => {
         fetchFavorites()
     }
 
-    if (checked_free_ebook) {
-        dispatch({type: "FREE_EBOOKS", payload: "&filter=free-ebooks"})
-    } else {
-        dispatch({type: "FREE_EBOOKS", payload: ""})
-    }
-    if (checked_only_author) {
-        dispatch({type: "SEARCH_BY_AUTHOR", payload: "inauthor:"})
-    } else {
-        dispatch({type: "SEARCH_BY_AUTHOR", payload: ""})
-    }
+    useEffect( () => {
+        if (checked_free_ebook) {
+            dispatch({type: "FREE_EBOOKS", payload: "&filter=free-ebooks"})
+        } else {
+            dispatch({type: "FREE_EBOOKS", payload: ""})
+        }
+    },[checked_free_ebook])
+
+    useEffect( () => {
+        if (checked_only_author) {
+            dispatch({type: "SEARCH_BY_AUTHOR", payload: "inauthor:"})
+        } else {
+            dispatch({type: "SEARCH_BY_AUTHOR", payload: ""})
+        }
+    },[checked_only_author])
+
     const erase_button = input === "" ? {visibility: "hidden"} : {display: ""}
 
     const handlerToggler = () => {
