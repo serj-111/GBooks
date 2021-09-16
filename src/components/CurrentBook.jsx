@@ -9,9 +9,9 @@ export const CurrentBook = ({scrollRef}) => {
 
     useEffect(() => {
         window.scrollTo(0, scrollRef.current.scrollHeight)
-    },[scrollRef])
+    },[])
 
-    let [switcher, setSwitcher] = useState(false)
+    const [switcher, setSwitcher] = useState(false)
     const book = useSelector(state => state.currentBookReducer.book)
     const dispatch = useDispatch()
     const checked = useSelector(state => state.currentBookReducer.checked)
@@ -35,10 +35,6 @@ export const CurrentBook = ({scrollRef}) => {
             setSwitcher(!switcher)
         }
     }
-    const handlerBack = () => {
-        history.goBack()
-    }
-
     const BookBlock = () => {
 
         let thumbnail_url = book.volumeInfo?.imageLinks ? book.volumeInfo.imageLinks.thumbnail : empty_book_thumbnail
@@ -73,7 +69,7 @@ export const CurrentBook = ({scrollRef}) => {
                             <p className="description mb-4">{book.volumeInfo?.description}</p>
                             {buy_button}
                             {preview}
-                            <div className="back_button shadow mb-5 rounded" onClick={handlerBack}>Назад</div>
+                            <div className="back_button shadow mb-5 rounded" onClick={ () => history.goBack()}>Назад</div>
                         </div>
                     </div>
                 </div>

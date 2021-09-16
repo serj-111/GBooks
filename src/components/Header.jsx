@@ -22,17 +22,13 @@ export const Header = ({fetchBooks, scrollRef, fetchFavorites}) => {
         fetchBooks()
     }
 
-    const handlerFavorites = () => {
-        fetchFavorites()
-    }
-
     useEffect( () => {
         if (checked_free_ebook) {
             dispatch({type: "FREE_EBOOKS", payload: "&filter=free-ebooks"})
         } else {
             dispatch({type: "FREE_EBOOKS", payload: ""})
         }
-    },[checked_free_ebook])
+    },[dispatch, checked_free_ebook])
 
     useEffect( () => {
         if (checked_only_author) {
@@ -40,7 +36,7 @@ export const Header = ({fetchBooks, scrollRef, fetchFavorites}) => {
         } else {
             dispatch({type: "SEARCH_BY_AUTHOR", payload: ""})
         }
-    },[checked_only_author])
+    },[dispatch, checked_only_author])
 
     const erase_button = input === "" ? {visibility: "hidden"} : {display: ""}
 
@@ -112,7 +108,7 @@ export const Header = ({fetchBooks, scrollRef, fetchFavorites}) => {
                                         </div>
                                     </div>
                                     <div className="col-md-auto d-flex justify-content-center d-flex align-items-center pt-3">
-                                        <Link className="btn btn-outline-secondary" to="/favorites" onClick={handlerFavorites}>Избранное</Link>
+                                        <Link className="btn btn-outline-secondary" to="/favorites" onClick={ () => fetchFavorites()}>Избранное</Link>
                                     </div>
                                 </div>
                             </div>

@@ -52,7 +52,7 @@ function App() {
                 .then(result => {
                     console.log(result)
                     // Проверка окончания "издания"
-                    let publication = ""
+                    let publication
                     let total_publications_one = result.totalItems.toString()[result.totalItems.toString().length-1]
                     let total_publications_ten = result.totalItems.toString()[result.totalItems.toString().length-2]
                     let total_publications_sum = Number(total_publications_ten + total_publications_one)
